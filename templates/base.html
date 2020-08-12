@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% load static %}
+        {% get_static_prefix as STATIC_PREFIX %}
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="flavien-hugs">
+
+        <!-- Favicons -->
+        <link rel="apple-touch-icon" href="" sizes="180x180">
+        <link rel="icon" href="" sizes="32x32" type="image/png">
+        <link rel="icon" href="" sizes="16x16" type="image/png">
+        <link rel="manifest" href="">
+        <link rel="mask-icon" href="" color="#563d7c">
+        <link rel="icon" href="">
+        <meta name="msapplication-config" content="">
+        <meta name="theme-color" content="#563d7c">
+        <!-- CSS only -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <link rel="stylesheet" href="{{ STATIC_PREFIX }}css/main.css">
+        <style>
+            .bd-placeholder-img {
+                font-size: 1.125rem;
+                text-anchor: middle;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+            }
+            @media (min-width: 768px) {
+                .bd-placeholder-img-lg {
+                    font-size: 3.5rem;
+                }
+            }
+        </style>
+        <title>
+            {% block title %}
+                Random Password Generator
+            {% endblock title %}
+        </title>
+    </head>
+
+    <body>
+        <form class="form-signin">
+            <div class="text-center mb-4">
+                <img class="mb-4" src="{{ STATIC_PREFIX }}img/key.png" alt="Random Password Generator" width="72" height="72">
+                <h1 class="h3 mb-3 font-weight-normal">Random Password Generator</h1>
+                <p>Generate a random password</p>
+            </div>
+
+            <div class="form-group">
+                {% if password %}<label class="text-center" for="password">{{ password }}</label>{% endif %}
+            </div>
+
+            <a href="{% url 'gpwd:password' %}" class="btn btn-md btn-success btn-block" type="submit">
+            Generate Password</a>
+
+            <p class="mt-5 mb-3 text-muted text-center">&copy;<script>document.write(new Date().getFullYear());
+                </script> &mdash; build by <a href="https://www.facebook.com/flavien.hugs" target="_blank" title="@flavien-hugs"> flavien-hugs </a>&mdash; V0.0.1
+            </p>
+        </form>
+    </body>
+</html>
