@@ -14,7 +14,8 @@ def generate(request):
     carac = list(
         string.digits + string.ascii_letters +
         string.ascii_lowercase +
-        string.ascii_uppercase
+        string.ascii_uppercase +
+        string.punctuation
     )
 
     random_carac = [random.choice(carac) for _ in range(24)]
